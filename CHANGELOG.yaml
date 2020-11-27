@@ -1,4 +1,4 @@
-# Newman JUnit Full Reporter Changelog
+# Newman XUnit Reporter Changelog
 1.0.0:
   date: 2018-10-22
   initial release:
@@ -11,3 +11,7 @@
   date: 2018-10-25
   fixes:
     - 'Added specification'
+2.0.0:
+  date: 2020-11-27
+  fixes:
+    - 'Added option --reporter-junitfull-hideSensitiveData'

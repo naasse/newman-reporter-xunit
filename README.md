@@ -1,4 +1,4 @@
-# newman-reporter-junitfull
+# newman-reporter-xunit
 JUnit reporter for [Newman](https://github.com/postmanlabs/newman) that provides the information about the collection run in JUnit format.
 This needs to be used in [conjunction with Newman](https://github.com/postmanlabs/newman#external-reporters) so that it can recognize JUnit reporting options.
 
@@ -6,12 +6,13 @@ This needs to be used in [conjunction with Newman](https://github.com/postmanlab
 
 > Different from [newman-reporter-junit](https://github.com/postmanlabs/newman/blob/develop/lib/reporters/junit/index.js) is using executions to have full report and no aggregated report.
 Please use [newman-reporter-junit](https://github.com/postmanlabs/newman/blob/develop/lib/reporters/junit/index.js) if you want the original aggregated results.
+This is based on [newman-reporter-junitfull] (https://github.com/martijnvandervlag/newman-reporter-junitfull) while adding some features
 
 ## Install
 > The installation should be global if newman is installed globally, local otherwise. (Replace -g from the command below with -S for a local installation)
 
 ```console
-$ npm install -g newman-reporter-junitfull
+$ npm install -g newman-reporter-xunit
 ```
 
 ## Usage
@@ -19,7 +20,7 @@ The examples provided in the usage are for showing the differences between [newm
 
 Iteration (```-n 2```) is used to show the difference between original and full reports.
 
-JUnit examples can be found [here](https://github.com/martijnvandervlag/newman-reporter-junitfull/tree/master/examples).
+JUnit examples can be found [here](https://github.com/bhecquet/newman-reporter-xjunit/tree/master/examples).
 
 ### Original
 > Use [newman-reporter-junit](https://github.com/postmanlabs/newman/blob/develop/lib/reporters/junit/index.js) to execute.
@@ -32,10 +33,10 @@ newman run https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943
 
 ### Full
 
-In order to enable this reporter, specify `junitfull` in Newman's `-r` or `--reporters` option.
+In order to enable this reporter, specify `xunit` in Newman's `-r` or `--reporters` option.
 
 ```console
-newman run https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65-JsLv -r junitfull --reporter-junitfull-export './examples/full/result.xml' -n 2
+newman run https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65-JsLv -r xunit --reporter-xunit-export './examples/full/result.xml' -n 2
 ```
 
 ### Options
@@ -44,7 +45,8 @@ newman run https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943
 
 | CLI Option  | Description       |
 |-------------|-------------------|
-| `--reporter-junitfull-export <path>` | Specify a path where the output XML file will be written to disk. If not specified, the file will be written to `newman/` in the current working directory. |
+| `--reporter-xunit-export <path>` | Specify a path where the output XML file will be written to disk. If not specified, the file will be written to `newman/` in the current working directory. |
+| `--reporter-xunit-hideSensitiveData` | Ask reporter to remove any property containing 'user', 'password', 'token', 'usr', 'pwd', 'passwd' so that these data do not leak through report |
 
 #### With Newman as a Library
 The CLI functionality is available for programmatic use as well.
@@ -54,9 +56,9 @@ const newman = require('newman');
 
 newman.run({
     collection: require('https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65-JsLv'), // can also provide a URL or path to a local JSON file.
-    reporters: 'junitfull',
+    reporters: 'xunit',
     reporter: {
-        junitfull: {
+        xunit: {
             export: './examples/full/result.xml', // If not specified, the file will be written to `newman/` in the current working directory.
         }
     },
@@ -69,10 +71,9 @@ newman.run({
 
 ## Compatibility
 
-| **newman-reporter-junitfull** | **newman** | **node** |
-|:-----------------------------:|:----------:|:--------:|
-|            v1.0.0             | >= v4.0.0  | >= v6.x  |
-|            v1.1.0             | >= v4.0.0  | >= v6.x  |
+| **newman-reporter-xunit** | **newman** | **node** |
+|:-------------------------:|:----------:|:--------:|
+|            v1.0.0         | >= v4.0.0  | >= v6.x  |
 
 ## Troubleshooting
 
@@ -82,7 +83,7 @@ The reporter and newman must be installed at the same level, the installation sh
 ### Getting different JUnit output
 You are most probably getting in-built reporter output used in older versions of newman, Please check the newman's [compatibility](#compatibility) section above.
 
-> If you are facing any other problem, please check the open [issues](https://github.com/martijnvandervlag/newman-reporter-junitfull/issues) or create new.
+> If you are facing any other problem, please check the open [issues](https://github.com/martijnvandervlag/newman-reporter-xunit/issues) or create new.
 
 ## Community Support
 

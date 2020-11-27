@@ -1,7 +1,7 @@
 {
-  "name": "newman-reporter-junitfull",
-  "version": "1.1.1",
-  "description": "A Newman JUnit Reporter providing full reports (without aggregation of results)",
+  "name": "newman-reporter-xunit",
+  "version": "2.0.0",
+  "description": "A Newman JUnit Reporter providing full reports (without aggregation of results) based on newman-reporter-junitfull package",
   "main": "index.js",
   "bundleDependencies": false,
   "dependencies": {
@@ -10,15 +10,15 @@
     "xmlbuilder": "^10.0.0"
   },
   "deprecated": false,
-  "homepage": "https://github.com/martijnvandervlag/newman-reporter-junitfull",
+  "homepage": "https://github.com/bhecquet/newman-reporter-xjunit",
   "keywords": [
     "newman",
     "reporter",
     "junit"
   ],
   "author": {
-    "name": "Martijn van der Vlag",
-    "email": "martijnvandervlag@gmail.com"
+    "name": "Bertrand Hecquet",
+    "email": "bhecquet.tech@free.fr"
   },
   "license": "Apache-2.0",
   "engines": {
@@ -29,10 +29,10 @@
   },
   "preferGlobal": true,
   "bugs": {
-    "url": "https://github.com/martijnvandervlag/newman-reporter-junitfull/issues"
+    "url": "https://github.com/bhecquet/newman-reporter-xjunit/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/martijnvandervlag/newman-reporter-junitfull.git"
+    "url": "git://github.com/bhecquet/newman-reporter-xunit.git"
   }
 }

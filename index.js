@@ -1,5 +1,6 @@
 /**!
  * @license Copyright 2018 Postdot Technologies, Inc.
+ * @license Copyright 2020 Bertand Hecquet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
