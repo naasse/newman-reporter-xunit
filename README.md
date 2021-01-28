@@ -47,6 +47,7 @@ newman run https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943
 |-------------|-------------------|
 | `--reporter-xunit-export <path>` | Specify a path where the output XML file will be written to disk. If not specified, the file will be written to `newman/` in the current working directory. |
 | `--reporter-xunit-hideSensitiveData` | Ask reporter to remove any property containing 'user', 'password', 'token', 'usr', 'pwd', 'passwd' so that these data do not leak through report |
+| `--reporter-xunit-excludeRequest <req1>,<req2>` | Exlude the named requests from report |
 
 #### With Newman as a Library
 The CLI functionality is available for programmatic use as well.
