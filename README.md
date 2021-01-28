@@ -39,6 +39,21 @@ In order to enable this reporter, specify `xunit` in Newman's `-r` or `--reporte
 newman run https://www.getpostman.com/collections/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65-JsLv -r xunit --reporter-xunit-export './examples/full/result.xml' -n 2
 ```
 
+### Change request named
+When using data file from newman, the same request, for each iteration, will have the same name, which is not very readable to distinguish the various test cases present in data file.
+
+You can then set a special global variable which will change this name
+
+```
+pm.globals.set("__name__" + pm.info.iteration + pm.info.requestName, <new name>)
+```
+
+This way, the name can depend on data present (e.g: 'testName') in datafile
+
+```
+pm.globals.set("__name__" + pm.info.iteration + pm.info.requestName, pm.iterationData.get("testName"))
+```
+
 ### Options
 
 #### With Newman CLI
