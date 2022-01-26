@@ -54,6 +54,14 @@ This way, the name can depend on data present (e.g: 'testName') in datafile
 pm.globals.set("__name__" + pm.info.iteration + pm.info.requestName, pm.iterationData.get("testName"))
 ```
 
+### Change package name 
+
+It's the same principle as above, you can set the Iteration name (by default 'Iteration x') to an other name so that they are more readable
+
+```
+pm.globals.set("__name__" + pm.info.iteration, <new name>)
+```
+
 ### Options
 
 #### With Newman CLI
